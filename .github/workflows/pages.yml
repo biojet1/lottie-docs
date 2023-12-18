@@ -21,6 +21,16 @@ jobs:
         name: Docs
         run: |
             make docs
+      - 
+        name: tar site
+        run: tar cvJf site.tar.xz site
+
+      - 
+        name: artifact site.tar.xz
+        uses: actions/upload-artifact@v2
+        with:
+          name: site.tar.xz
+          path: site.tar.xz
       -
         name: Validate
         run: |
